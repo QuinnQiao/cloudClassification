@@ -1,0 +1,16 @@
+# hyper-parameters
+device:          0
+
+# datasets
+imgs_folder:     /home/quinn/datasets/cloudCompetition/test/
+csv_file:        /home/quinn/datasets/cloudCompetition/submit_example.csv
+resize_size:     512
+crop_size:       448
+num_workers:     8
+
+# stage
+is_train:        False
+batch_size:      6
+ckpt_dir:        /home/quinn/Documents/models/cloudCompetition/base/
+ckpt_step:       150
+save_dir:        /home/quinn/Documents/models/cloudCompetition/base/

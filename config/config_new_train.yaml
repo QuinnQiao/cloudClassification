@@ -1,0 +1,22 @@
+# hyper-parameters
+device:          0 
+
+# optimization
+epoch:           150
+lr:              0.01
+lr_gamma:        0.1
+lr_steps:        70, 110
+momentum:        0.9
+weight_decay:    0.0005
+
+# datasets
+imgs_folder:     /home/quinn/datasets/cloudCompetition/train/
+csv_folder:      csv/
+resize_size:     0 # not used
+crop_size:       448
+num_workers:     8
+
+# stage
+is_train:        True
+batch_size:      32
+ckpt_dir:        /home/quinn/Documents/models/cloudCompetition/base/

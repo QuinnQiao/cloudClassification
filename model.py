@@ -17,7 +17,7 @@ class Net(nn.Module):
             self.resume()
 
     def forward(self, x, label=None):
-        x = self.classifier(self.backbone(x)) # N*D        
+        x = self.backbone(x) # N*D        
         x = F.log_softmax(x, dim=1)
 
         if label is not None:

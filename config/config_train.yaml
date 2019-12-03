@@ -12,7 +12,7 @@ weight_decay:    0.0005
 # datasets
 imgs_folder:     /home/quinn/datasets/cloudCompetition/train/
 csv_folder:      csv/
-resize_size:     0 # not used
+resize_size:     512
 crop_size:       448
 num_workers:     8
 

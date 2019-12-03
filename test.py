@@ -40,7 +40,7 @@ print('Test finished!\nWriting to csv file...')
 
 with open(os.path.join(config['save_dir'], 'test.csv'), 'w', encoding='utf-8') as f:
     writer = csv.writer(f)
-    writer.writerow(['FileName', 'type'])
+    writer.writerow(['FileName', 'Type'])
     for i in range(len(names)):
         name = names[i]
         k = name.rfind('/')

@@ -10,7 +10,7 @@ with open(sys.argv[1]) as f:
 
 print('Preparing datasets...')
 csv_train = os.path.join(config['csv_folder'], 'train.csv')
-csv_valid = os.path.join(config['csv_folder'], 'valid.csv')
+csv_valid = os.path.join(config['csv_folder'], 'validate.csv')
 if_label = True
 loader_train, num_imgs_train = get_loader(if_label, config['imgs_folder'], csv_train, config['resize_size'], 
                                             config['crop_size'], True, config['batch_size'], config['num_workers'])
@@ -47,6 +47,7 @@ for step in range(tot_epoch):
     
     print('  Average loss: %f, average acc: %f' % (tot_loss, tot_acc))
 
+    print('  Validating...')
     tot_loss = 0.
     tot_acc = 0.
     for i, (x, label) in enumerate(loader_valid):
@@ -62,7 +63,7 @@ for step in range(tot_epoch):
             acc = (pred == label).type(torch.float32).mean()
             tot_loss = (i * tot_loss + float(loss)) / (i + 1)
             tot_acc = (i * tot_acc + float(acc)) / (i + 1)
-    print('  validation: loss: %f, acc: %f' % (float(tot_loss), float(tot_acc)))
+    print('  Validation: loss: %f, acc: %f' % (float(tot_loss), float(tot_acc)))
     
     net.scheduler.step()
     net.save(step+1)

@@ -4,6 +4,7 @@ import torch.optim as optim
 from torchvision import models
 import torch.nn.functional as F 
 import os
+from utils import RAdam
 
 class Net(nn.Module):
     def __init__(self, config):
@@ -55,8 +56,9 @@ class Net(nn.Module):
                 nn.init.constant_(m.bias.data, 0.)
 
     def _get_optim(self):
-        self.optimizer = optim.SGD(self.parameters(), lr=self.config['lr'], momentum=self.config['momentum'], 
-                                    weight_decay=self.config['weight_decay'])
+        #self.optimizer = optim.SGD(self.parameters(), lr=self.config['lr'], momentum=self.config['momentum'], 
+        #                            weight_decay=self.config['weight_decay'])
+        self.optimizer = RAdam(self.parameters(), lr=self.config['lr'], weight_decay=self.config['weight_decay'])
         s = self.config['lr_steps'].split(',')
         milestones = []
         for i in s:
